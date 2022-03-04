@@ -64,40 +64,40 @@ public class Task4 {
 
 	
 	
-	/**
-	 * @Generate B
-	 */
-	 public void generateB() throws IOException
-	   {
-	       // it is very important that we do everything through ResourceSet's
-	       ResourceSet resourceSet = new ResourceSetImpl();
-	     
-	       resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put( "ecore", new EcoreResourceFactoryImpl());
-	       Resource resource = resourceSet.createResource(URI.createFileURI("model/hw1.ecore"));
-	       EPackage newPackage = (EPackage)createPackage("Package", "Package", "http://PackageDB");;
-	       
-	       // next, create the row class
-	       EClass customerRow = createEClass("CustomerRow");
-	       // add to package before we do anything else
-	       newPackage.getEClassifiers().add(customerRow);
-	       // add our features
-	       addAttribute(customerRow, "id", EcorePackage.Literals.ESTRING, true, 1, 1);
-	       addAttribute(customerRow, "firstName", EcorePackage.Literals.ESTRING, false, 0, 1);
-	       addAttribute(customerRow, "lastName", EcorePackage.Literals.ESTRING, false, 0, 1);
-
-	       // now create a new resource to serialize the ecore model
-	      // Resource outputRes = resourceSet.getResource(null, false));
-	       // add our new package to resource contents
-	       resource.getContents().add(newPackage);
-	       Resource outputRes = resourceSet.createResource(URI.createFileURI(instance));
-	       System.out.println(resource.getURI().path());
-	       resource.setURI(URI.createFileURI(instance));
-	       System.out.println(resource.getURI().path());
-	       //outputRes.getContents().add(newPackage);
-	       
-	       // and at last, we save to standard out.  Remove the first argument to save to file specified in pathToOutputFile
-	       resource.save( Collections.emptyMap());
-	   }
+//	/**
+//	 * @Generate B
+//	 */
+//	 public void generateB() throws IOException
+//	   {
+//	       // it is very important that we do everything through ResourceSet's
+//	       ResourceSet resourceSet = new ResourceSetImpl();
+//	     
+//	       resourceSet.getResourceFactoryRegistry().getExtensionToFactoryMap().put( "ecore", new EcoreResourceFactoryImpl());
+//	       Resource resource = resourceSet.createResource(URI.createFileURI("model/hw1.ecore"));
+//	       EPackage newPackage = (EPackage)createPackage("Package", "Package", "http://PackageDB");;
+//	       
+//	       // next, create the row class
+//	       EClass customerRow = createEClass("CustomerRow");
+//	       // add to package before we do anything else
+//	       newPackage.getEClassifiers().add(customerRow);
+//	       // add our features
+//	       addAttribute(customerRow, "id", EcorePackage.Literals.ESTRING, true, 1, 1);
+//	       addAttribute(customerRow, "firstName", EcorePackage.Literals.ESTRING, false, 0, 1);
+//	       addAttribute(customerRow, "lastName", EcorePackage.Literals.ESTRING, false, 0, 1);
+//
+//	       // now create a new resource to serialize the ecore model
+//	      // Resource outputRes = resourceSet.getResource(null, false));
+//	       // add our new package to resource contents
+//	       resource.getContents().add(newPackage);
+//	       Resource outputRes = resourceSet.createResource(URI.createFileURI(instance));
+//	       System.out.println(resource.getURI().path());
+//	       resource.setURI(URI.createFileURI(instance));
+//	       System.out.println(resource.getURI().path());
+//	       //outputRes.getContents().add(newPackage);
+//	       
+//	       // and at last, we save to standard out.  Remove the first argument to save to file specified in pathToOutputFile
+//	       resource.save( Collections.emptyMap());
+//	   }
 
 	   private void addAttribute(EClass customerRow, String name,
 	           EClassifier type, boolean isId, int lowerBound, int upperBound)

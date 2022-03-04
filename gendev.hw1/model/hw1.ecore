@@ -48,7 +48,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Safety" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="customer" eType="#//Customer"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PrivateAccount" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="PrivateAccount">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="inv1"/>
     </eAnnotations>
@@ -64,7 +64,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="EmailAddress" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="customer" eType="#//Customer"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BusinessAccount" abstract="true">
+  <eClassifiers xsi:type="ecore:EClass" name="BusinessAccount">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="inv2 inv3"/>
     </eAnnotations>

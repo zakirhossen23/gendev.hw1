@@ -8,3 +8,7 @@
 2022-03-04 17:21:50,192 [Worker-1: Decoration Calculation] WARN  org.eclipse.jgit.util.FS_Win32 - null
 2022-03-04 17:48:45,289 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2022-03-04 17:48:48,227 [Worker-1: Decoration Calculation] WARN  org.eclipse.jgit.util.FS_Win32 - null
+2022-03-04 19:00:38,306 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2022-03-04 19:00:42,782 [Worker-1: Decoration Calculation] WARN  org.eclipse.jgit.util.FS_Win32 - null
+2022-03-04 19:18:41,662 [main] WARN  org.eclipse.jgit.util.FS_Win32 - null
+2022-03-04 19:18:57,734 [Worker-3: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
