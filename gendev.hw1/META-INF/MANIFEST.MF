@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: gendev.hw1
 Bundle-SymbolicName: gendev.hw1; singleton:=true
 Bundle-Version: 0.1.0.qualifier
-Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
+Require-Bundle: org.eclipse.emf.ecore,org.eclipse.emf.ecore.xmi;visibility:=reexport,
  org.eclipse.core.runtime,
  org.junit,
  org.junit.jupiter.api

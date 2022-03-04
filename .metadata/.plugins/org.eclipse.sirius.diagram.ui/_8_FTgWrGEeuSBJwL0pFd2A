@@ -1,9 +1,11 @@
-#Fri Mar 04 09:36:29 BDT 2022
+#Fri Mar 04 16:51:15 BDT 2022
 print.useInches=true
 rulergrid.rulerunit=0
 print.margin.left=0.5
+viewport.x=0
 rulergrid.gridlinestyle=6
-zoom=1.0
+viewport.y=0
+zoom=0.75
 print.usePortrait=true
 print.page.height=11.0
 print.page.width=8.5
