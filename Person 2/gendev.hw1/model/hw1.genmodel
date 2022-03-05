@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/gendev.hw1/src-gen" creationIcons="false" editDirectory="/gendev.hw1.edit/src-gen"
+    editorDirectory="/gendev.hw1.editor/src-gen" modelPluginID="gendev.hw1" modelName="Hw1"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>hw1.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Hw1" basePackage="gendev" disposableProviderFactory="true"
+      ecorePackage="hw1.ecore#/">
+    <genClasses image="false" ecoreClass="hw1.ecore#//Customer">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hw1.ecore#//Customer/Type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hw1.ecore#//Customer/account"/>
+      <genOperations ecoreOperation="hw1.ecore#//Customer/Credit"/>
+      <genOperations ecoreOperation="hw1.ecore#//Customer/CreditCard"/>
+      <genOperations ecoreOperation="hw1.ecore#//Customer/Security"/>
+      <genOperations ecoreOperation="hw1.ecore#//Customer/Corporate"/>
+    </genClasses>
+    <genClasses ecoreClass="hw1.ecore#//Account">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hw1.ecore#//Account/FAQ"/>
+      <genOperations ecoreOperation="hw1.ecore#//Account/getPrivateAccount"/>
+      <genOperations ecoreOperation="hw1.ecore#//Account/getBusinessAccount"/>
+      <genOperations ecoreOperation="hw1.ecore#//Account/getCreditCard"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="hw1.ecore#//PrivateAccount">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hw1.ecore#//PrivateAccount/Salutation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hw1.ecore#//PrivateAccount/Title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hw1.ecore#//PrivateAccount/FirstName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hw1.ecore#//PrivateAccount/SureName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hw1.ecore#//PrivateAccount/FAQ"/>
+    </genClasses>
+    <genClasses ecoreClass="hw1.ecore#//Finanace">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hw1.ecore#//Finanace/customer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hw1.ecore#//Finanace/About"/>
+      <genOperations ecoreOperation="hw1.ecore#//Finanace/getPersonalLoan"/>
+      <genOperations ecoreOperation="hw1.ecore#//Finanace/getHousingLoan"/>
+      <genOperations ecoreOperation="hw1.ecore#//Finanace/getBusinessLoan"/>
+      <genOperations ecoreOperation="hw1.ecore#//Finanace/getLeasing"/>
+    </genClasses>
+    <genClasses ecoreClass="hw1.ecore#//Invest">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hw1.ecore#//Invest/customer"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hw1.ecore#//Invest/About"/>
+      <genOperations ecoreOperation="hw1.ecore#//Invest/SecuritiesAccount"/>
+      <genOperations ecoreOperation="hw1.ecore#//Invest/SavingsPlans"/>
+    </genClasses>
+    <genClasses ecoreClass="hw1.ecore#//Services">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hw1.ecore#//Services/eBanking"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hw1.ecore#//Services/FormCenter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hw1.ecore#//Services/Conditions"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute hw1.ecore#//Services/Safety"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference hw1.ecore#//Services/customer"/>
+      <genOperations ecoreOperation="hw1.ecore#//Services/EasybankApp"/>
+      <genOperations ecoreOperation="hw1.ecore#//Services/MasterCardSecure"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

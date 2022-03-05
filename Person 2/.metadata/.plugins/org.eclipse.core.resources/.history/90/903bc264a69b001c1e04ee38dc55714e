@@ -1,0 +1,130 @@
+package gendev.hw1;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.xml.crypto.Data;
+
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EFactory;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EcoreFactory;
+import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
+
+public class Task4 {
+	//private static final EObject Account2 = null;
+	public static String instance = "task4_instance/instance.xmi";
+
+	/**
+	 * @model
+	 */
+	 public void generate(final String pathToDDLEcore, final String pathToOutputFile) throws IOException
+	   {
+	       // it is very important that we do everything through ResourceSet's
+	       ResourceSet resourceSet = new ResourceSetImpl();
+	     
+	       // next we will create our own new package to contained what we will generate
+	       final EPackage newPackage = createPackage("customerDB", "customerDB", "http://customerDB");
+
+	       // next, create the table class
+	       EClass customers = createEClass("Customers");
+	       // add to package before we do anything else
+	       newPackage.getEClassifiers().add(customers);
+	  
+	       // now create a new resource to serialize the ecore model
+	       Resource outputRes = resourceSet.createResource(URI.createFileURI(pathToOutputFile));
+	       // add our new package to resource contents
+	       outputRes.getContents().add(newPackage);
+	       // and at last, we save to standard out.  Remove the first argument to save to file specified in pathToOutputFile
+	       outputRes.save(System.out, Collections.emptyMap());
+	   }
+
+	   private void addAttribute(EClass customerRow, String name,
+	           EClassifier type, boolean isId, int lowerBound, int upperBound)
+	   {
+	       final EAttribute attribute = EcoreFactory.eINSTANCE.createEAttribute();
+	       // always add to container first
+	       customerRow.getEStructuralFeatures().add(attribute);
+	       attribute.setName(name);
+	       attribute.setEType(type);
+	       attribute.setID(isId);
+	       attribute.setLowerBound(lowerBound);
+	       attribute.setUpperBound(upperBound);
+	   }
+
+	   private void addReference(EClass customerRow, String name,
+	           EClassifier type, int lowerBound, int upperBound)
+	   {
+	       final EReference reference = EcoreFactory.eINSTANCE.createEReference();
+	       // always add to container first
+	       customerRow.getEStructuralFeatures().add(reference);
+	       reference.setName(name);
+	       reference.setEType(type);
+	       reference.setLowerBound(lowerBound);
+	       reference.setUpperBound(upperBound);
+	   }
+
+	   private EPackage createPackage(final String name, final String prefix,
+	           final String uri)
+	   {
+	       final EPackage epackage = EcoreFactory.eINSTANCE.createEPackage();
+	       epackage.setName(name);
+	       epackage.setNsPrefix(prefix);
+	       epackage.setNsURI(uri);
+	       return epackage;
+	   }
+	   
+	   private EClass createEClass(final String name)
+	   {
+	       final EClass eClass = EcoreFactory.eINSTANCE.createEClass();
+	       eClass.setName(name);
+	       return eClass;
+	   }
+
+	   private void addSuperType(EClass customerRow, EPackage ddlPackage,
+	           String name)
+	   {
+	        final EClass eSuperClass = (EClass) ddlPackage.getEClassifier(name);
+	        customerRow.getESuperTypes().add(eSuperClass);
+	   }
+
+	   private Resource createAndLoadDDLResource(ResourceSet resourceSet,
+	           String pathToDDLEcore) throws IOException
+	   {
+	       // creating a proper URI is vitally important since this is how
+	       // referenced objects in the is ecore file will be found from the ecore
+	       // file that we produce.
+	       final URI uri = URI.createFileURI(pathToDDLEcore);
+	       Resource res = resourceSet.createResource(uri);
+	       res.load(Collections.emptyMap());
+	       return res;
+	   }	
+	
+	
+	
+	public static void main(String[] args) throws IOException {
+		System.out.println("Creating and saving instance to file " + instance);
+	    Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
+	    final String pathToDDLEcore = "C:\\Users\\zakir\\Documents\\Project 1\\gendev.hw1\\gendev.hw1\\model/hw1.ecore";
+	    final String outputPath = instance;
+	       
+	   new Task4().generate(pathToDDLEcore, outputPath);
+	}
+
+}
