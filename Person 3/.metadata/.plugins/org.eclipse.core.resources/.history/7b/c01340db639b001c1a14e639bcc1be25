@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="hw1" nsURI="http://www.example.org/hw1" nsPrefix="hw1">
+  <eClassifiers xsi:type="ecore:EClass" name="Account">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="getPrivateAccount()"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="getBusinessAccount()"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="getCreditCard()"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NewAbstractClass2" abstract="true"/>
+</ecore:EPackage>
